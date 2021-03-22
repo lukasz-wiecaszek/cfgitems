@@ -1,0 +1,45 @@
+#
+# 802.1AS example configuration containing those attributes which
+# differ from the defaults.  See the file, default.cfg, for the
+# complete list of available options.
+#
+
+multithreaded = true
+configuration_file = mystring2
+speed = 2.0
+s8 = 2
+u8 = 2
+s16 = 2
+u16 = 2
+s32 = 2
+u32 = 2
+s64 = 2
+u64 = 2
+
+[submodule]
+
+multithreaded = false
+configuration_file = mystring1
+speed = 1.0
+s8 = 1
+u8 = 1
+s16 = 1
+u16 = 1
+s32 = 1
+u32 = 1
+s64 = 1
+u64 = 1
+
+[submodule2]
+
+multithreaded = false
+configuration_file = mystring1
+speed = 1.0
+s8 = 1
+u8 = 1
+s16 = 1
+u16 = 1
+s32 = 1
+u32 = 1
+s64 = 1
+u64 = 1
