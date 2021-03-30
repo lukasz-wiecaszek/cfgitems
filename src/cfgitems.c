@@ -110,6 +110,11 @@ int cfgitems_init(const char* filename)
     return filename ? cfgitems_parse_configuration_file(filename) : CFGITEMS_SUCCESS;
 }
 
+int cfgitems_parse(const char* filename)
+{
+    return filename ? cfgitems_parse_configuration_file(filename) : CFGITEMS_SUCCESS;
+}
+
 int cfgitems_get_bool(const char* module, const char* name, bool* value)
 {
     struct cfgitems* cfgitem = cfgitems_find(module, name);
@@ -758,6 +763,12 @@ static int cfgitems_parse_configuration_line(const char* module, char* line)
         value = strtok(NULL, delimiters);
         if (value == NULL)
             break;
+
+        if (value[0] == '\"')
+            value++;
+        size_t value_len = strlen(value);
+        if ((value_len > 0) && value[value_len - 1] == '\"')
+            value[value_len - 1] = '\0';
 
         switch (cfgitem->type) {
             case CFGITEMS_TYPE_BOOL:

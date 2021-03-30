@@ -146,7 +146,27 @@ LTS_EXTERN struct cfgitems CFGITEMS_SECTION_END;
 /*===========================================================================*\
  * function forward declarations (external linkage)
 \*===========================================================================*/
+/**
+ * Initializes configuration items library.
+ *
+ * @param[in] filename Path to the file containing configuration items
+ *                     in .ini file format.
+ *                     Can be NULL in which case it is just not used.
+ *
+ * @return CFGITEMS_SUCCESS on success, CFGITEMS_FAILURE value otherwise.
+ */
 LTS_EXTERN int cfgitems_init(const char* filename);
+
+/**
+ * Parses configuration file.
+ *
+ * @param[in] filename Path to the file containing configuration items
+ *                     in .ini file format.
+ *                     Can be NULL in which case it is just not used.
+ *
+ * @return CFGITEMS_SUCCESS on success, CFGITEMS_FAILURE value otherwise.
+ */
+LTS_EXTERN int cfgitems_parse(const char* filename);
 
 /**
  * Gets value of 'bool' configuration item.
